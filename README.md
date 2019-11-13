@@ -21,15 +21,6 @@
 
 通过 [main.yml](/roles/kafka/tasks/main.yml) 文件，查看或修改当前的下载地址
 
-```
- - name: Download Kafka
-   unarchive:
-    src: https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.3.1/kafka_2.12-2.3.1.tgz
-      dest: /opt/
-      remote_src: yes
-      owner: kafka
-      group: kafka
-```
 
 ## 安装指南
 
