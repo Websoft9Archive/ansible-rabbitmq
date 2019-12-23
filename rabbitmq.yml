@@ -8,6 +8,7 @@
   pre_tasks:
     - name: Install Python
       raw: sudo apt update && sudo apt-get -y install python
+      ignore: True
 
 
 # # 核心任务
@@ -19,5 +20,6 @@
 
   roles:
     - { role: common, tags: "common"}  
+    - { role: cloud, tags: "cloud"}  
     - { role: rabbitmq, tags: "rabbitmq"}
     - { role: end, tags: "end"}
