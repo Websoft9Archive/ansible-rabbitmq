@@ -3,8 +3,8 @@
   - name: System Upgrade
     yum: name=* state=latest
 
-  - name: Install EPEL
-    yum:
+  - name: Install Extra Packages for Enterprise Linux
+    yum: 
       name: epel-release
 
   - name: Disable SELinux
@@ -17,15 +17,14 @@
 
   - name: Install Common Software
     yum: 
-      name: [mosh,yum-utils,wget,openssl,unzip,bzip2,expect,at,vim, screen,pwgen,git, htop, yum-cron,ImageMagick, goaccess,python-pip,inotify-tools,python-devel]
-      state: installed
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
     
-  - name: Configuration yum-cron
-    copy: src=yum-cron.conf dest=/etc/yum/
+  - name: Install PiP
+    yum:
+      name: python-pip
+    when: ansible_python.version.major == 2
 
-  - name: Start yum-cron
-    service: name=yum-cron state=started enabled=yes
-  
+
   when: ansible_distribution == 'CentOS'
 
 # Ubuntu 更新 安装基础软件工具等操作
@@ -40,25 +39,16 @@
 
   - name: Install Common Software
     apt: 
-      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess,python-pip,python3-pip,unattended-upgrades,python-dev,python3-dev]
+      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess,python3-pip]
       state: latest
       force_apt_get: True
       allow_unauthenticated: yes
-
-  - name: Configuration unattended-upgrades
-    copy: src=20auto-upgrades dest=/etc/apt/apt.conf.d/
   
   when: ansible_distribution == 'Ubuntu'
 
-
-- name: Pip Update
-  pip:
-    name: pip
-    extra_args: --upgrade
-
 - name: pip requirements
   pip:
-    name: [pexpect]
+    name: pexpect
 
 - name: Set swapiness
   sysctl:

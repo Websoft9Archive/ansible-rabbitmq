@@ -1,25 +1,13 @@
-  
-# # 服务器前置任务(ubuntu使用)
-- name: Pre_tasks of RabbitMQ
-  hosts: all
-  become: yes
-  become_method: sudo
-  gather_facts: False
-  pre_tasks:
-    - name: Install Python
-      raw: sudo apt update && sudo apt-get -y install python
-      ignore_errors: True
-
-
-# # 核心任务
-
 - name: RabbitMQ
   hosts: all
   become: yes
   become_method: sudo
+  vars_files:
+    - vars/main.yml
 
   roles:
-    - { role: common, tags: "common"}  
-    - { role: cloud, tags: "cloud"}  
-    - { role: rabbitmq, tags: "rabbitmq"}
-    - { role: end, tags: "end"}
+    - role: role_common
+    - role: role_cloud
+    - role: rabbitmq
+    - role: role_init_password
+    - role: role_end
