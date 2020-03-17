@@ -1,0 +1,8 @@
+init_application:
+  rabbitmq:
+    random_password: True
+    default_account: admin
+    default_password: admin
+    random_password_method: 
+      - systemctl start rabbitmq-server
+      - rabbitmqctl change_password  admin $new_password
