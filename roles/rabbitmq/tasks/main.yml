@@ -30,5 +30,6 @@
     name: rabbitmq-server
     state: restarted
     enabled: yes
+    
 
 
