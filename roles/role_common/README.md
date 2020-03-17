@@ -1,45 +1,44 @@
 Ansible Role: common
 =========
 
-在CentOS或者Ubuntu服务器上安装常见工具和配置系统自动更新
+本 Role 用于在CentOS或者Ubuntu服务器上安装常见工具和配置系统自动更新
 
-Requirements
-------------
+## Requirements
 
-无特殊要求,此 role 需要 root 用户权限,可以在playbook全局加入 `become: yes`,或者如下调用 role:
+运行本 Role，请确认符合如下的必要条件：
 
-```
-- hosts: all
-  roles:
-    - role: role_common
-      become: yes
-```
-
-Role Variables
---------------
-None
+| **Items**      | **Details** |
+| ------------------| ------------------|
+| Operating system | CentOS7.x Ubuntu18.04 AmazonLinux|
+| Python 版本 | Python2  |
+| Python 组件 |    |
+| Runtime |  Linux |
 
 
+## Related roles
 
-Dependencies
-------------
+本 Role 在其他 roles 之前运行。
 
-None
 
-Example Playbook
-----------------
+## Variables
+
+暂无
+
+
+## Example
 
 ```
-- hosts: db-servers
+- name: LAMP
+  hosts: all
   become: yes
+  become_method: sudo 
+  vars_files:
+    - vars/main.yml 
 
   roles:
     - { role: role_common }
 ```
 
+## FAQ
 
-License
--------
-
-BSD
 

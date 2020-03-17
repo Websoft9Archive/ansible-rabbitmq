@@ -1,55 +1,19 @@
-# Centos 更新 安装基础软件工具等操作
-- block:
-  - name: System Upgrade
-    yum: name=* state=latest
+- debug:
+    msg: Will install components on {{ ansible_distribution }} 
 
-  - name: Install Extra Packages for Enterprise Linux
-    yum: 
-      name: epel-release
-
-  - name: Disable SELinux
-    selinux:
-      state: disabled
-
-  - name:  temporarily disable Selinux
-    shell: setenforce 0 
-    when: ansible_selinux.status != 'disabled'
-
-  - name: Install Common Software
-    yum: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
-    
-  - name: Install PiP
-    yum:
-      name: python-pip
-    when: ansible_python.version.major == 2
+- include: "{{ansible_os_family}}.yml"
 
 
-  when: ansible_distribution == 'CentOS'
-
-# Ubuntu 更新 安装基础软件工具等操作
-- block:
-  - name: Upgrade all packages to the latest version
-    apt:
-      name: "*"
-      state: latest
-      update_cache: yes
-      force_apt_get: True
-      autoremove: yes
-
-  - name: Install Common Software
-    apt: 
-      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess,python3-pip]
-      state: latest
-      force_apt_get: True
-      allow_unauthenticated: yes
+# Python模块处理
+- name: pip upgrade
+  shell: python{{ansible_python.version.major}} -m pip install -U pip
   
-  when: ansible_distribution == 'Ubuntu'
-
-- name: pip requirements
+- name: Install pip requirements module
   pip:
-    name: pexpect
+    name: [pexpect]
+    extra_args: "-U" 
 
+# 系统设置
 - name: Set swapiness
   sysctl:
     name: vm.swappiness
@@ -60,6 +24,7 @@
     name: fs.inotify.max_user_watches
     value: "8192000"
 
+# 准备基本目录
 - name: Create Dir
   file:
     path: '/data/{{item}}'

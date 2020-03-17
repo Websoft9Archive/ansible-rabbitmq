@@ -1,45 +1,43 @@
-Ansible Role: cloud
+Ansible Role: Cloud
 =========
 
-在CentOS或者Ubuntu服务器处理云厂家异同,以及设置交换分区
+在CentOS或者Ubuntu服务器处理云厂家异同,以及设置交换分区.
 
-Requirements
-------------
+## Requirements
 
-无特殊要求,此 role 需要 root 用户权限,可以在playbook全局加入 `become: yes`,或者如下调用 role:
+运行本 Role，请确认符合如下的必要条件：
 
-```
-- hosts: all
-  roles:
-    - role: role_cloud
-      become: yes
-```
-
-Role Variables
---------------
-None
+| **Items**      | **Details** |
+| ------------------| ------------------|
+| Operating system | CentOS7.x Ubuntu18.04 |
+| Python 版本 | Python2  |
+| Python 组件 |    |
+| Runtime | 阿里云, 华为云, Azure, AWS |
 
 
+## Related roles
 
-Dependencies
-------------
+本 Role 不依赖其他 roles，只用来处理不同云平台的服务器差异。
 
-None
 
-Example Playbook
-----------------
+## Variables
+
+暂无
+
+
+## Example
 
 ```
-- hosts: all
+- name: LAMP
+  hosts: all
   become: yes
+  become_method: sudo 
+  vars_files:
+    - vars/main.yml 
 
   roles:
-    - { role: role_cloud }
+    - { role: role_common }
+    - { role: role_cloud } 
 ```
 
-
-License
--------
-
-BSD
-
+## FAQ
