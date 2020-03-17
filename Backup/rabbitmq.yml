@@ -1,0 +1,13 @@
+- name: RabbitMQ
+  hosts: all
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - {role: role_common, tags: "role_common"}
+    - {role: role_cloud, tags: "role_cloud"}
+    - {role: rabbitmq, tags: "rabbitmq"}
+    - {role: role_preend, tags: "role_preend"}
+    - {role: role_end, tags: "role_end"}
