@@ -1,35 +1,4 @@
-- name: add a key used to sign RabbitMQ
-  apt_key:
-    url: https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc
-
-
-- name: add the apt repository
-  apt_repository:
-    repo: "{{item}}"
-    state: present
-    filename: bintray.rabbitmq
-  with_items:
-    - deb https://dl.bintray.com/rabbitmq-erlang/debian bionic erlang
-    - deb https://dl.bintray.com/rabbitmq/debian bionic main
-
-- name: Install RabbitMQ
-  apt:
-    name: rabbitmq-server
-
-- name: enable RabbitMQ HTTP API
-  shell: rabbitmq-plugins enable rabbitmq_management
-
-- name: Add RabbitMQ admin User
-  shell:  rabbitmqctl add_user admin admin
-
-- name: setting admin user tags 
-  shell: rabbitmqctl set_user_tags admin administrator
-
-- name: Restart RabbitMQ Server
-  service:
-    name: rabbitmq-server
-    state: restarted
-    enabled: yes
-    
+- name: Install RabbitMQ on {{ansible_os_family}}
+  include: "{{ansible_os_family}}.yml"
 
 
