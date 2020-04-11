@@ -6,7 +6,7 @@
 # Set RabbitMQ
 
 - name: Restart RabbitMQ
-  shell: systemctl restart rabbitmq-server
+  shell: systemctl start rabbitmq-server
 
 - name: Enable the management console of RabbitMQ
   shell: rabbitmq-plugins enable rabbitmq_management
