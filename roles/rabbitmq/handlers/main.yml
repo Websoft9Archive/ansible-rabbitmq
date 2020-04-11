@@ -1,3 +1,7 @@
----
-# handlers file for example
-# 保存常见重启服务
+- name: RabbitMQ Version
+  debug:
+    var: check_rabbitmq_version.stdout
+  
+- name: Erlang Version
+  debug:
+    var: check_erlang_version.stdout
