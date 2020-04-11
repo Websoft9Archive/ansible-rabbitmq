@@ -6,4 +6,4 @@
 - name: Apt Install Erlang and RabbitMQ 
   shell: |
     sudo apt-get update -y
-    sudo apt-get install -y erlang rabbitmq-server 
+    sudo apt-get install -y erlang rabbitmq-server -y
