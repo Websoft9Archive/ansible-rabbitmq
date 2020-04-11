@@ -1,7 +1,7 @@
-- name: RabbitMQ Version
+- name: check_rabbitmq_version
   debug:
     var: check_rabbitmq_version.stdout
   
-- name: Erlang Version
+- name: check_erlang_version
   debug:
     var: check_erlang_version.stdout
