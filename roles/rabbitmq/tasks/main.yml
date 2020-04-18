@@ -29,6 +29,6 @@
     notify: check_rabbitmq_version
 
   - name: Check Erlang Version
-    shell: ls /usr/lib64/erlang
+    shell: systemctl status rabbitmq-server | grep /usr/lib/erlang/erts-
     register: check_erlang_version
     notify: check_erlang_version
