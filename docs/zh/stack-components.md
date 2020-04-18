@@ -1,63 +1,56 @@
+---
+sidebarDepth: 3
+---
+
 # 参数
 
-## 组件及路径
+RabbitMQ 预装包包含 RabbitMQ 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
-Metabase部署包中不仅仅只有Metabase本身，还包含一序列支持Metabase运行所需的其他软件（这里称之为组件），下面列出主要组件名称、安装路径、配置文件地址等重要的信息：
+## 路径
 
-### Metabase
+虽然运行 `whereis` 命令可以查看相关安装路径，但接下来我们仍然对路径信息进行更为准确的说明。
 
-Metabase安装目录: /data/wwwroot/metabase  
-Metabase配置文件: /data/wwwroot/metabase/ccc.ii
+```
+whereis activemq
+whereis java
+```
 
-> Metabase配置文件中包含数据库连接信息，更改了MySQL数据库账号密码，此处也需要对应修改
+### RabbitMQ
+
+RabbitMQ 安装目录： */opt/activemq/*  
+RabbitMQ 配置目录： */opt/apache-activemq/conf*  
+RabbitMQ 数据目录： */opt/apache-activemq/data*  
+RabbitMQ 日志目录： */opt/apache-activemq/data/activemq.log*
+
+> 通过修改 */opt/apache-activemq/conf/jetty-realm.propertie* 重置管理密码
 
 ### Java
-安装路径
-配置路径
-日志路径
 
-### Tomcat
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
+Java Directory: */usr/lib/jvm*
 
-
-### Nginx
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
-
-### MYSQL
-Database install directory: /usr/local/mysql  
-Database data directory: /data/mysql  
-Database Configuration File: /etc/my.cnf  
-MySQL Management URL: _http://Internet IP/phpmyadmin_
-
-### Redis
-Redis configuration file: _/etc/redis.conf_  
-Redis data directory: _/var/lib/redis_
 
 ## 端口号
 
-下面是您在使用本镜像过程中，需要用到的端口号，请通过云控制台安全组进行设置
+在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
+
+通过命令`netstat -tunlp`查看相关端口，下面列出本应用可能要用到的端口：
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| MySQL | 3306 | 远程连接MySQL | 可选 |
-| HTTP | 80 | 通过http访问Metabase | 必须 |
-| HTTPS | 443 | 通过https访问Metabase | 可选 |
-| phpMyAdmin on Docker | 9090 | 可视化管理MySQL | 可选 |
+| HTTP | 8161 | 通过 HTTP 访问 RabbitMQ 控制台 | 可选 |
+| TCP | 5672 | amqp | 可选 |
 
 ## 版本号
 
-组件对应的基本版本号可以通过云市场商品页面查看，但部署到您的服务器之后，版本会有一定的升级，故更为精准的版本请通过在服务器上运行命令查看：
+组件版本号可以通过云市场商品页面查看。但部署到您的服务器之后，组件会自动进行更新导致版本号有一定的变化，故精准的版本号请通过在服务器上运行命令查看：
 
 ```shell
-# Tomcat version
-
-# Nginx version
-
-# MySQL version
+# Linux Version
+lsb_release -a
 
 # Java Version
+java -version
+
+# RabbitMQ version
+ls /opt/apache-activemq | grep activemq
 ```
