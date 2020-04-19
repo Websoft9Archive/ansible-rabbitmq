@@ -4,6 +4,6 @@
 
 ## 配置
 
-参考官方方案：http://activemq.apache.org/configuration.html
+参考官方方案：https://www.rabbitmq.com/configure.html
 
 ## 更多

@@ -29,6 +29,6 @@
     notify: check_rabbitmq_version
 
   - name: Check Erlang Version
-    shell: systemctl status rabbitmq-server | grep /usr/lib
+    shell: yum info erlang | grep Version
     register: check_erlang_version
     notify: check_erlang_version

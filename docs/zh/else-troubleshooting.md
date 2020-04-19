@@ -6,20 +6,20 @@
 
 #### 如何查看错误日志？
 
-日志文件路径为：`/opt/apache-activemq/data/activemq.log`。检索关键词 **Failed** 或者 **error** 查看错误
+日志文件路径为：`/data/logs`。检索关键词 **Failed** 或者 **error** 查看错误
 
 #### RabbitMQ服务无法启动？
 
-1. 以调试模式运行`activemq console`，便可以查看启动状态和错误
+1. 以调试模式运行`rabbitmq-server console`，便可以查看启动状态和错误
    ```
-   /opt/apache-activemq/bin/activemq
+   rabbitmq-server console
    ```
-2. 打开日志文件：*/opt/apache-activemq/data/activemq.log*，检索 **failed** 关键词，分析错误原因
+2. 打开日志文件：*/data/logs/rabbitmq-server*，检索 **failed** 关键词，分析错误原因
 
-3. 常见的无法启动RabbitMQ服务的原因有如下几点：
 
-   * 主机名不符合要求。例如：activemq5.6，这种包含"."的主机名就会导致RabbitMQ无法重启。参考如下命令重置主机名
-   ```
-   hostnamectl set-hostname activemq
-   ```
-   * 缺乏Java的环境变量。通过：`echo $JAVA_HOME` 或 `which java` 查看反馈信息。
+#### 在Chrome下修改密码后报错？
+
+这个并不是服务器端的问题，只要更新浏览器即可。
+
+![chrome error of RabbitMQ](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-chromeerror-websoft9.png)
+

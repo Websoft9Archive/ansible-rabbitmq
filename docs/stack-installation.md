@@ -10,28 +10,21 @@ If you have completed the RabbitMQ deployment on Cloud Platform, the following s
 
 ## RabbitMQ Installation Wizard
 
-1. Using local Chrome or Firefox to visit the URL *http://DNS:8161* or *http://Internet IP:8161*, you will enter installation wizard of RabbitMQ
-  ![RabbitMQ console](http://libs.websoft9.com/Websoft9/DocsPicture/zh/activemq/activemq-login-websoft9.png)
+1. Using local Chrome or Firefox to visit the URL *http://DNS:15672* or *http://Internet IP:15672*, you will enter installation wizard of RabbitMQ
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-login-websoft9.png)
 
-2. Click link【Manage RabbitMQ broker】to login RabbitMQ console([Don't know password?](/stack-accounts.md#activemq))
-  ![RabbitMQ console](http://libs.websoft9.com/Websoft9/DocsPicture/zh/activemq/activemq-logined-websoft9.png)
+2. Log in to RabbitMQ web console([Don't have password?](/stack-accounts.md#rabbitmq))  
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-bk-websoft9.png)
 
-3. You can reset the password by modify the file */opt/apache-activemq/conf/jetty-realm.properties* 
+3. Set you new password from: 【Users】>【Admin】>【Permissions】>【Update this user】
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-pw-websoft9.png)
 
-> More useful RabbitMQ guide, please refer to [Using Apache RabbitMQ](https://activemq.apache.org/using-activemq)
+> More useful RabbitMQ guide, please refer to [RabbitMQ Documentation](https://www.rabbitmq.com/documentation.html)
 
 ## Q&A
 
 #### I can't visit the start page of RabbitMQ?
 
-Your TCP:8161 of Security Group Rules is not allowed so there no response from Chrome or Firefox
+Your TCP:15672 of Security Group Rules is not allowed so there no response from Chrome or Firefox
 
 #### RabbitMQ service can't start? 
-
-Make sure your **hostname** of Server not include the str ".". e.g activemq5.6 is a not regular for RabbitMQ
-
-you can rename hostname by the following command
-
-```
-hostnamectl set-hostname activemq
-```

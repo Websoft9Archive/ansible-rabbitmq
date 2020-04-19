@@ -10,24 +10,21 @@ RabbitMQ 预装包包含 RabbitMQ 运行所需一序列支撑软件（简称为�
 
 虽然运行 `whereis` 命令可以查看相关安装路径，但接下来我们仍然对路径信息进行更为准确的说明。
 
-```
-whereis activemq
-whereis java
+```shell
+whereis rabbitmq-server
+whereis erlang
+rpm -ql rabbitmq-server
+rpm -ql erlang
 ```
 
 ### RabbitMQ
 
-RabbitMQ 安装目录： */opt/activemq/*  
-RabbitMQ 配置目录： */opt/apache-activemq/conf*  
-RabbitMQ 数据目录： */opt/apache-activemq/data*  
-RabbitMQ 日志目录： */opt/apache-activemq/data/activemq.log*
+RabbitMQ 安装目录： */data/rabbitmq*  
+RabbitMQ 日志目录： */data/logs/rabbitmq*  
 
-> 通过修改 */opt/apache-activemq/conf/jetty-realm.propertie* 重置管理密码
+### Erlang
 
-### Java
-
-Java Directory: */usr/lib/jvm*
-
+Erlang 安装目录： */data/erlang*  
 
 ## 端口号
 
@@ -37,8 +34,9 @@ Java Directory: */usr/lib/jvm*
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| HTTP | 8161 | 通过 HTTP 访问 RabbitMQ 控制台 | 可选 |
-| TCP | 5672 | amqp | 可选 |
+| HTTP | 15672 | 通过 HTTP 访问 RabbitMQ 控制台 | 可选 |
+| TCP | 5672 | epmd | 可选 |
+| TCP | 55672 | Erlang distribution | 可选 |
 
 ## 版本号
 
@@ -48,9 +46,9 @@ Java Directory: */usr/lib/jvm*
 # Linux Version
 lsb_release -a
 
-# Java Version
-java -version
+# erlang  Version
+yum info erlang
 
 # RabbitMQ version
-ls /opt/apache-activemq | grep activemq
+rabbitmqctl status | grep RabbitMQ*
 ```

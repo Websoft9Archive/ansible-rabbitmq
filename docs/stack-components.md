@@ -6,23 +6,21 @@ The RabbitMQ deployment package contains a sequence software (referred to as "co
 
 You can check the file path by the cmd `whereis` of RabbitMQ, and we have prepared more detail for your reference
 
-```
-whereis activemq
-whereis java
+```shell
+whereis rabbitmq-server
+whereis erlang
+rpm -ql rabbitmq-server
+rpm -ql erlang
 ```
 
 ### RabbitMQ
 
-RabbitMQ installation directory:  */opt/activemq/*  
-RabbitMQ configuration directory:  */opt/apache-activemq/conf*  
-RabbitMQ data directory:  */opt/apache-activemq/data*  
-RabbitMQ logs directory:  */opt/apache-activemq/data/activemq.log*
+RabbitMQ installation directory:  */data/rabbitmq*  
+RabbitMQ logs directory:  */data/logs/rabbitmq*  
 
-> you can reset the administrator password of RabbitMQ by modify the file: */opt/apache-activemq/conf/jetty-realm.propertie* 
+### Erlang
 
-### Java
-
-Java Directory: */usr/lib/jvm*
+Erlang installation directory:  */data/erlang*  
 
 ## Ports
 
@@ -33,7 +31,9 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
 | HTTP | 8161 | HTTP requests for RabbitMQ Console| Required |
-| HTTPS | 5672 | amqp | Optional |
+| HTTPS | 5672 | epmd | Optional |
+| TCP | 55672 | Erlang distribution | Optional |
+
 
 ## Version
 
@@ -43,9 +43,9 @@ You can see the version from product page of Marketplace. However, after being d
 # Linux Version
 lsb_release -a
 
-# Java Version
-java -version
+# erlang  Version
+yum info erlang
 
 # RabbitMQ version
-ls /opt/apache-activemq | grep activemq
+rabbitmqctl status | grep RabbitMQ*
 ```

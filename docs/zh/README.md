@@ -6,16 +6,16 @@ home: false
 
 本文档由 [Websoft9](https://www.websoft9.com/) 公司提供，用于指导用户学习 RabbitMQ 的安装部署与基本运维技术，包括：RabbitMQ部署、初始化安装、环境配置、HTTPS、SMTP、备份升级和连接云服务器操作等基本操作。
 
-[RabbitMQ](https://activemq.apache.org) 是Apache出品，流行的、能力强劲的开源消息总线，完全支持JMS1.1和J2EE 1.4规范（持久化，XA消息，事务)，尽管JMS规范出台已经是很久的事情了，但是JMS在当今的J2EE应用中间仍然扮演着特殊的地位。RabbitMQ支持多种语言和协议编写客户端。
+[RabbitMQ](https://www.rabbitmq.com) 流行的开源消息队列系统，用erlang语言开，是AMQP（高级消息队列协议）的标准实现。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/activemq/activemq-logined-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-gui-websoft9.png)
 
 ---
 
 ## 改进
 
 本文档会持续改进，广泛吸收用户的需求。  
-如果您有好的想法，请点击页面下方”在Github上编辑“ 给我们反馈，欢迎Fork我们在[Github上的项目](https://github.com/Websoft9/ansible-activemq)。
+如果您有好的想法，请点击页面下方”在Github上编辑“ 给我们反馈，欢迎Fork我们在[Github上的项目](https://github.com/Websoft9/ansible-rabbitmq)。
 
 ## 赞助
 

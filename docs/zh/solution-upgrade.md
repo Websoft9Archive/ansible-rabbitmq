@@ -10,7 +10,7 @@ RabbitMQ 完整的更新升级包括：系统级更新（操作系统和运行�
 
 ## 系统级更新
 
-运行一条更新命令，即可完成系统级更新：
+运行一条更新命令，即可完成系统级（包含RabbitMQ小版本更新）更新：
 
 ``` shell
 #For Ubuntu&Debian
@@ -24,21 +24,4 @@ yum update -y
 
 ## RabbitMQ升级
 
-RabbitMQ 主要采用二级制安装方式，其升级方案差不多等于安装：
-
-1. 依次运行如下的命令做好准备：
-   ```
-   # stop RabbitMQ service
-   systemctl stop activemq
-
-   # rename the dir of RabbitMQ for backup
-   mv /opt/apache-activemq  /opt/apache-activemqBK
-   ```
-2. 访问 RabbitMQ 官方网站，[下载](http://activemq.apache.org/components/classic/download/)后解压并上传到：*/opt* 目录，并命名为 *apache-activemq*
-3. 分别运行下面的修改权限
-   ```
-   chown -R activemq. /opt/apache-activemq
-   chmod 640  /opt/apache-activemq/examples/stomp/php/*
-   chmod +x /opt/apache-activemq/bin/activemq
-   ```
-4. 重启 [RabbitMQ服务](/zh/admin-services#activemq) 后升级完成
+详情参考官方升级文档：[Upgrading RabbitMQ](https://www.rabbitmq.com/upgrade.html)

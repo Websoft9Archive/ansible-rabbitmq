@@ -26,21 +26,4 @@ yum update -y
 
 ## RabbitMQ Upgrade
 
-RabbitMQ upgrade is similar to installation, you can upgrade it by the following steps
-
-1. Prepare for upgrade
-   ```
-   # stop RabbitMQ service
-   systemctl stop activemq
-
-   # rename the dir of RabbitMQ for backup
-   mv /opt/apache-activemq  /opt/apache-activemqBK
-   ```
-2. [Download RabbitMQ](http://activemq.apache.org/components/classic/download/) and upload it to the directory */opt* after unzip it, then renamed the directory to *apache-activemq*
-3. Run the following modify permissions separately
-   ```
-   chown -R activemq. /opt/apache-activemq
-   chmod 640  /opt/apache-activemq/examples/stomp/php/*
-   chmod +x /opt/apache-activemq/bin/activemq
-   ```
-4. Restart the [RabbitMQ Service](/zh/admin-services#activemq) 
+Refer to the official docs: [Upgrading RabbitMQ](https://www.rabbitmq.com/upgrade.html)

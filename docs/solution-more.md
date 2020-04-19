@@ -4,7 +4,7 @@ Each of the following solutions has been proven to be effective and we hope to b
 
 ## Configuration 
 
-Refer to the official docs: http://activemq.apache.org/configuration.html
+Refer to the official docs: https://www.rabbitmq.com/configure.html
 
 ## More
 

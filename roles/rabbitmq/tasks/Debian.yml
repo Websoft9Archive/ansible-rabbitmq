@@ -15,3 +15,9 @@
 - name: Install RabbitMQ
   apt:
     name: rabbitmq-server
+
+- name: Add soft link 
+  shell: |
+    ln -s /usr/lib/rabbitmq /data/rabbitmq
+    ln -s /var/log/rabbitmq /data/logs/rabbitmq
+    ln -s /usr/lib64/erlang /data/erlang
