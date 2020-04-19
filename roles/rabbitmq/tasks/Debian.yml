@@ -20,4 +20,4 @@
   shell: |
     ln -s /usr/lib/rabbitmq /data/rabbitmq
     ln -s /var/log/rabbitmq /data/logs/rabbitmq
-    ln -s /usr/lib64/erlang /data/erlang
+    ln -s /usr/lib/erlang /data/erlang

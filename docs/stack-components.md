@@ -9,8 +9,13 @@ You can check the file path by the cmd `whereis` of RabbitMQ, and we have prepar
 ```shell
 whereis rabbitmq-server
 whereis erlang
+
+#For Centos&Redhat
 rpm -ql rabbitmq-server
 rpm -ql erlang
+
+#For Ubuntu&Debian
+dpkg -L rabbitmq-server
 ```
 
 ### RabbitMQ
@@ -45,6 +50,7 @@ lsb_release -a
 
 # erlang  Version
 yum info erlang
+apt show erlang
 
 # RabbitMQ version
 rabbitmqctl status | grep RabbitMQ*
