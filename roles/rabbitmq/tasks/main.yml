@@ -32,3 +32,4 @@
     shell: yum info erlang | grep Version
     register: check_erlang_version
     notify: check_erlang_version
+    when: ansible_os_family=="RedHat"
