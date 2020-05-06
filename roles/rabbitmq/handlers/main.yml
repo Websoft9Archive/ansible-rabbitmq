@@ -1,7 +1,1 @@
-- name: check_rabbitmq_version
-  debug:
-    var: check_rabbitmq_version.stdout
-  
-- name: check_erlang_version
-  debug:
-    var: check_erlang_version.stdout
+
