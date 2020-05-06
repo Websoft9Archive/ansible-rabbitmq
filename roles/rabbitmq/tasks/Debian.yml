@@ -18,6 +18,6 @@
 
 - name: Add soft link 
   shell: |
-    ln -s /usr/lib/rabbitmq /data/rabbitmq
-    ln -s /var/log/rabbitmq /data/logs/rabbitmq
-    ln -s /usr/lib/erlang /data/erlang
+    ln -sb /usr/lib/rabbitmq /data/rabbitmq
+    ln -sb /var/log/rabbitmq /data/logs/rabbitmq
+    ln -sb /usr/lib/erlang /data/erlang
