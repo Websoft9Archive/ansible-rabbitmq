@@ -16,6 +16,12 @@
     sudo rabbitmqctl add_user admin admin
     sudo rabbitmqctl set_user_tags admin administrator
 
+- name: Debug users
+  shell: sudo rabbitmqctl list_users
+  register: rabbimq_show_users
+
+- debug: msg="{{rabbimq_show_users}}"
+
 - name: Restart RabbitMQ Server
   service:
     name: rabbitmq-server
