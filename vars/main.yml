@@ -5,7 +5,7 @@ init_application:
     default_password: admin
     random_password_method: 
       - systemctl start rabbitmq-server
-      - rabbitmqctl delete_user admin
-      - rabbitmqctl add_user admin admin
-      - 
-      - rabbitmqctl change_password  admin $new_password
+      - sudo rabbitmqctl delete_user admin
+      - sudo rabbitmqctl add_user admin admin
+      - sudo rabbitmqctl set_user_tags admin administrator
+      - sudo rabbitmqctl change_password  admin $new_password
