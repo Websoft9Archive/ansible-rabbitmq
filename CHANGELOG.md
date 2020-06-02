@@ -2,7 +2,7 @@
 
 ## To do
 
-* 进一步研究AWS,Azure基于镜像开机admin用户丢失的问题
+1. 
 
 ## Logs
 
