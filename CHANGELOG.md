@@ -8,7 +8,8 @@
 
 ### Bug Fixes
 
-* 2020-05-07 通过给role_init中增加 rabbitmqctl delete_user admin 然后再创建用户，解决AWS,Azure基于镜像开机后admin不存在的问题
+* 2020-06-02  optimize init password 
+* 2020-05-07  通过给role_init中增加 rabbitmqctl delete_user admin 然后再创建用户，解决AWS,Azure基于镜像开机后admin不存在的问题
 
 ### Features
 
