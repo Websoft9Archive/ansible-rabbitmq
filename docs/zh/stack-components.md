@@ -50,7 +50,7 @@ RabbitMQ对外提供服务时，为保证通信的安全性，通常使用SSL/TL
 git clone https://github.com/michaelklishin/tls-gen tls-gen
 cd tls-gen/basic
 
-# 123456是自定义的私钥密码
+123456是自定义的私钥密码
 make PASSWORD=123456
 make verify
 make info
@@ -65,17 +65,17 @@ make info
 
 vi etc/rabbitmq/rabbitmq.conf
 
-# 限定非SSL\TLS的通信仅可在服务端本地连接
+限定非SSL\TLS的通信仅可在服务端本地连接
 listeners.tcp.default = 127.0.0.1:5672
-# SSL\TLS通信的端口
+SSL\TLS通信的端口
 listeners.ssl.default = 5671
-# 服务端私钥和证书文件配置
+服务端私钥和证书文件配置
 ssl_options.cacertfile = /root/tls-gen/basic/result/ca_certificate.pem
 ssl_options.certfile = /root/tls-gen/basic/result/server_certificate.pem
 ssl_options.keyfile = /root/tls-gen/basic/result/server_key.pem
-# 有verify_none和verify_peer两个选项，verify_none表示完全忽略验证证书的结果，verify_peer表示要求验证对方证书
+有verify_none和verify_peer两个选项，verify_none表示完全忽略验证证书的结果，verify_peer表示要求验证对方证书
 ssl_options.verify = verify_peer
-# 若为true，服务端会向客户端索要证书，若客户端无证书则中止SSL握手；若为false，则客户端没有证书时依然可完成SSL握手
+若为true，服务端会向客户端索要证书，若客户端无证书则中止SSL握手；若为false，则客户端没有证书时依然可完成SSL握手
 ssl_options.fail_if_no_peer_cert = true
 
 根据语言，选择不同的验证方式：
