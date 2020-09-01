@@ -4,7 +4,7 @@
 - src: https://github.com/websoft9dev/role_cloud
   version: master
 
-- src: https://github.com/websoft9dev/role_init_password
+- src: https://github.com/websoft9dev/role_init
   version: master
 
 - src: https://github.com/websoft9dev/role_end
