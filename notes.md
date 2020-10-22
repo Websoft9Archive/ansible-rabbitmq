@@ -98,6 +98,28 @@ yum install erlang rabbitmq-server -y
 | AMQP      | 5672  |
 | http      | 15672 |
 
-## 日志
+#### 前置条件erlang的版本可能不满足RabbitMQ的安装要求导致无法安装
 
+错误信息：failed to start RabbitMQ broker  
+解决方案：/var/lib/rabbitmq/mnesia 目录下存在rabbit@localhost.pid、rabbit@localhost、rabbit@localhost-plugins-expand，删除这3项后，再使用systemctl start rabbitmq-server启动
+
+#### 增加新用户后无法登录?
+
+解决方案：新增用户，并赋予管理员权限
+
+```shell
+rabbitmqctl add_user admin admin      #新增一个用户
+rabbitmqctl set_user_tags admin administrator #授予管理员
+```
+
+#### 前置条件erlang是必要的吗？
+
+是的
+
+#### 如何获取RabbitMQ版本？
+```shell
+sudo rabbitmqctl status | grep RabbitMQ*
+```
+
+## 日志
 * 2020-04-14 完成CentOS安装研究
