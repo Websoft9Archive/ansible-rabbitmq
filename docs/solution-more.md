@@ -34,3 +34,37 @@ If you can't remote connect RabbitMQ, please check the following conditions:
 * Enable the **TCP:5672** and **TCP:15672** ports of your Security Group of your Cloud Platform
 * The user of RabbitMQ was assigned the suitable role (The user **test** can't connect from remote because it has not been assigned any role in the the picture below)
   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-createusererror-websoft9.png)
+
+## Config TLS/SSL
+
+RabbitMQ config TLS/SSL, need following 4 steps：
+
+1. Install tls-gen
+
+```bash
+git clone https://github.com/michaelklishin/tls-gen tls-gen
+cd tls-gen/basic
+# private key password
+make PASSWORD=bunnies
+make verify
+make info
+ls -l ./result
+cp -r result/ /etc/rabbitmq/ssl/  
+```
+
+2. Add follow content into `/etc/rabbitmq/rabbitmq.config`
+
+```
+ssl_options.cacertfile = /etc/rabbitmq/ssl/ca_certificate.pem
+ssl_options.certfile   = /etc/rabbitmq/ssl/server_certificate.pem
+ssl_options.keyfile    = /etc/rabbitmq/ssl/server_key.pem
+ssl_options.verify     = verify_peer
+ssl_options.fail_if_no_peer_cert = false
+```
+3. Restart RabbitMQ service `systemctl restart rabbitmq`
+
+4. Verification
+
+```
+rabbitmq-diagnostics listeners
+```

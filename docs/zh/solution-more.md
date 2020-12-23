@@ -34,3 +34,36 @@
 * 是否开启云控制台上的安全组**TCP:5672**和**TCP:15672**端口
 * 创建的RabbitMQ账号是否分配角色（下图的test用户由于没有分配角色，导致它无法远程连接）
   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/rabbitmq/rabbitmq-createusererror-websoft9.png)
+
+
+## 配置TLS/SSL
+
+RabbitMQ配置TLS/SSL，需要以下4个步骤：
+
+1. 安装tls-gen
+
+```bash
+git clone https://github.com/michaelklishin/tls-gen tls-gen
+cd tls-gen/basic
+# private key password
+make PASSWORD=bunnies
+make verify
+make info
+ls -l ./result
+cp -r result/ /etc/rabbitmq/ssl/  
+```
+
+2. 追加下面内容到配置文件`/etc/rabbitmq/rabbitmq.config`
+```
+ssl_options.cacertfile = /etc/rabbitmq/ssl/ca_certificate.pem
+ssl_options.certfile   = /etc/rabbitmq/ssl/server_certificate.pem
+ssl_options.keyfile    = /etc/rabbitmq/ssl/server_key.pem
+ssl_options.verify     = verify_peer
+ssl_options.fail_if_no_peer_cert = false
+```
+3. 重启服务`systemctl restart rabbitmq`
+
+4. 验证
+```bash
+rabbitmq-diagnostics listeners
+```
