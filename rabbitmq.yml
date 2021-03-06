@@ -4,7 +4,7 @@
   become_method: sudo
   vars_files:
     - vars/main.yml
- vars_prompt:
+  vars_prompt:
     - name: 'rabbitmq_selection'
       prompt: "Choose serial number to install RabbitMQ \n
       1: rabbitmq 3.6\n
