@@ -19,7 +19,7 @@
       '2': "3.7"
       '3': "3.8"
 
-    rabbitmq_version: "{{rabbitmq[rabbitmq_selection]}}"  
+    rabbitmq_version: "{{rabbitmq_select[rabbitmq_selection]}}"  
 
   roles:
     - {role: role_common, tags: "role_common"}
