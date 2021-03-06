@@ -24,7 +24,7 @@
   roles:
     - {role: role_common, tags: "role_common"}
     - {role: role_cloud, tags: "role_cloud"}
-    - {role: rabbitmq, tags: "rabbitmq"}
+    - {role: role_rabbitmq, tags: "role_rabbitmq"}
     - {role: role_init, tags: "role_init"}
     - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}
