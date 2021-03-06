@@ -2,6 +2,8 @@
 
 - src: https://github.com/websoft9dev/role_cloud
 
+- src: https://github.com/websoft9dev/role_rabbitmq
+
 - src: https://github.com/websoft9dev/role_init
 
 - src: https://github.com/websoft9dev/role_end
