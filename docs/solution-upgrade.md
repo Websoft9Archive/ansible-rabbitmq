@@ -17,9 +17,11 @@ Run an update command to complete the system update:
 
 ``` shell
 #For Ubuntu&Debian
+rm -rf /etc/apt/preferences.d/*
 apt update && apt upgrade -y
 
 #For Centos&Redhat
+yum versionlock clear
 yum update -y
 ```
 > This deployment package is preconfigured with a scheduled task for automatic updates. If you want to remove the automatic update, please delete the corresponding Cron
