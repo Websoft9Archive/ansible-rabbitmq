@@ -5,7 +5,7 @@ init_application:
     username: admin
     password: "admin"
     commands: 
-      - sleep 30s
+      - sleep 15s
       - sudo rabbitmqctl delete_user admin
       - sudo rabbitmqctl add_user admin admin
       - sudo rabbitmqctl set_user_tags admin administrator
