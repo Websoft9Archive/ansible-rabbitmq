@@ -10,7 +10,7 @@
   "requirements_swap": "2",
   "requirements_configure_url": "https://www.rabbitmq.com/download.html",
   "install_way": {
-    "en": "Package isntallation",
+    "en": "Package isntallation ",
     "zh": "包安装"
   },
   "install_url": "https://github.com/rabbitmq/rabbitmq-server/releases"
