@@ -35,9 +35,9 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
-| HTTP | 8161 | HTTP requests for RabbitMQ Console| Required |
-| HTTPS | 5672 | epmd | Optional |
-| TCP | 55672 | Erlang distribution | Optional |
+| HTTP | 15672 | HTTP requests for RabbitMQ Console| Required |
+| HTTPS | 5672 | RabbitMQ connect Port | Optional |
+| TCP | 4369 | Erlang distribution | Optional |
 
 
 ## Version
