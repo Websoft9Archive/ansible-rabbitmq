@@ -39,9 +39,9 @@ Erlang 安装目录： */data/erlang*
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| HTTP | 15672 | 通过 HTTP 访问 RabbitMQ 控制台 | 可选 |
-| TCP | 5672 | epmd | 可选 |
-| TCP | 55672 | Erlang distribution | 可选 |
+| HTTP | 15672 | 通过 HTTP 访问 RabbitMQ 控制台 | 必须 |
+| TCP | 5672 | RabbitMQ连接端口 | 可选 |
+| TCP | 4369 | Erlang distribution | 可选 |
 
 ## SSL\TLS通信
 RabbitMQ对外提供服务时，为保证通信的安全性，通常使用SSL/TLS加密通信。
